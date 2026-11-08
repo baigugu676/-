@@ -1,0 +1,98 @@
+{
+  "renderer": "Microsoft Word 16.0 ExportAsFixedFormat",
+  "checker": "PyMuPDF",
+  "pages": 18,
+  "a4": true,
+  "pages_detail": [
+    {
+      "page": 1,
+      "title": "2026—2027 第 1 学期",
+      "text_characters": 364
+    },
+    {
+      "page": 2,
+      "title": "1  设计总览与任务对应",
+      "text_characters": 812
+    },
+    {
+      "page": 3,
+      "title": "2  数据来源、字段与统计口径",
+      "text_characters": 941
+    },
+    {
+      "page": 4,
+      "title": "2.3  数据质量与计算定义",
+      "text_characters": 903
+    },
+    {
+      "page": 5,
+      "title": "3  任务一：堆叠柱状图需求文档",
+      "text_characters": 728
+    },
+    {
+      "page": 6,
+      "title": "4  任务一：组件结构与接口",
+      "text_characters": 1149
+    },
+    {
+      "page": 7,
+      "title": "4.4  任务一实际运行效果",
+      "text_characters": 188
+    },
+    {
+      "page": 8,
+      "title": "4.5  任务一研究结果与图表解读",
+      "text_characters": 779
+    },
+    {
+      "page": 9,
+      "title": "5  任务一：交互测试与验收",
+      "text_characters": 738
+    },
+    {
+      "page": 10,
+      "title": "6  任务一：合作分工详细安排",
+      "text_characters": 948
+    },
+    {
+      "page": 11,
+      "title": "7  任务二：天气可视化需求文档",
+      "text_characters": 722
+    },
+    {
+      "page": 12,
+      "title": "8  任务二：架构与交互实现",
+      "text_characters": 930
+    },
+    {
+      "page": 13,
+      "title": "8.4  任务二实际运行效果",
+      "text_characters": 203
+    },
+    {
+      "page": 14,
+      "title": "9  任务二：研究结果与解释",
+      "text_characters": 874
+    },
+    {
+      "page": 15,
+      "title": "10  任务二：交互测试与验收",
+      "text_characters": 727
+    },
+    {
+      "page": 16,
+      "title": "11  任务二：合作分工详细安排",
+      "text_characters": 923
+    },
+    {
+      "page": 17,
+      "title": "12  运行、复核与环境说明",
+      "text_characters": 984
+    },
+    {
+      "page": 18,
+      "title": "13  展示脚本、提交检查与参考资料",
+      "text_characters": 945
+    }
+  ]
+}

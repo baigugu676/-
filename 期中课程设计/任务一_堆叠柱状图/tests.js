@@ -1,0 +1,30 @@
+'use strict';
+function runTests(){
+  const out=[],{classify,aggregate,StackedBarChart,CATEGORIES}=WeatherStack,fixture=document.querySelector('#fixture');
+  const test=(name,fn)=>{try{if(fn()===false)throw Error('断言未满足');out.push({name,pass:true});}catch(e){out.push({name,pass:false,error:e.message});}};
+  const equal=(a,b)=>{if(JSON.stringify(a)!==JSON.stringify(b))throw Error(`实际 ${JSON.stringify(a)}，预期 ${JSON.stringify(b)}`);};
+  test('分组边界：0 / 0.1 / 10 / 25 mm',()=>equal([0,.1,10,25].map(classify),['dry','light','medium','heavy']));
+  test('边界左侧：0.099 / 9.999 / 24.999 mm',()=>equal([.099,9.999,24.999].map(classify),['dry','light','medium']));
+  test('null、undefined、NaN、负数不计为无雨',()=>equal([null,undefined,NaN,-1].map(classify),[null,null,null,null]));
+  test('空数组保留十二个月且有效日为 0',()=>equal(aggregate([]).map(m=>m.valid),Array(12).fill(0)));
+  test('缺测计数与累计降水独立',()=>{const m=aggregate([{date:'2024-01-01',rain:null},{date:'2024-01-02',rain:10}])[0];equal([m.valid,m.missing,m.rain,m.medium],[1,1,10,1]);});
+  test('闰年二月有 29 条真实记录',()=>equal(WEATHER_DATA.cities[0].days.filter(d=>d.date.startsWith('2024-02')).length,29));
+  test('四城每月：四分组之和等于有效日',()=>{for(const c of WEATHER_DATA.cities)for(const m of aggregate(c.days))equal(m.dry+m.light+m.medium+m.heavy,m.valid);});
+  test('四城全年：有效日 + 缺测日 = 366',()=>{for(const c of WEATHER_DATA.cities)equal(aggregate(c.days).reduce((s,m)=>s+m.valid+m.missing,0),366);});
+  test('四城月度降水和与原始逐日和一致',()=>{for(const c of WEATHER_DATA.cities){const a=aggregate(c.days).reduce((s,m)=>s+m.rain,0),b=c.days.reduce((s,d)=>s+(classify(d.rain)===null?0:d.rain),0);if(Math.abs(a-b)>1e-7)throw Error(c.name+'累计量不一致');}});
+  let selected=0;const chart=new StackedBarChart(fixture),rows=aggregate(WEATHER_DATA.cities[0].days);
+  test('渲染生成可访问的 SVG 与交互色块',()=>{chart.render(rows,{onSelect:m=>selected=m});return !!fixture.querySelector('svg[role="img"] rect[role="button"]');});
+  test('点击色块发出对应月份',()=>{const rect=fixture.querySelector('rect[role="button"]');rect.dispatchEvent(new MouseEvent('click',{bubbles:true}));equal(selected,Number(rect.dataset.month));});
+  test('Enter 键选择对应月份',()=>{const rect=fixture.querySelectorAll('rect[role="button"]')[3];rect.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));equal(selected,Number(rect.dataset.month));});
+  test('空格键选择对应月份',()=>{selected=0;const rect=fixture.querySelector('rect[role="button"]');rect.dispatchEvent(new KeyboardEvent('keydown',{key:' ',bubbles:true}));equal(selected,Number(rect.dataset.month));});
+  test('百分比隐藏其他分组后，分母仍为全部有效日',()=>{chart.render(rows,{mode:'percent',active:['dry']});const rect=fixture.querySelector('rect[data-category="dry"]');const r=rows[Number(rect.dataset.month)-1];return rect.getAttribute('aria-label').includes((r.dry/r.valid*100).toFixed(1)+'%');});
+  test('隐藏全部分组显示提示且无交互色块',()=>{chart.render(rows,{active:[]});return fixture.textContent.includes('请至少启用')&&!fixture.querySelector('rect[role="button"]');});
+  test('有效数据为空时显示空态',()=>{chart.render(aggregate([]),{active:CATEGORIES.map(c=>c.id)});return fixture.textContent.includes('没有有效降水');});
+  test('SVG 导出可被 XML 解析且没有 NaN',()=>{chart.render(rows);const xml=chart.exportSVG();const doc=new DOMParser().parseFromString(xml,'image/svg+xml');return !doc.querySelector('parsererror')&&!xml.includes('NaN');});
+  test('destroy 释放图表 DOM',()=>{chart.destroy();equal(fixture.children.length,0);});
+  chart.render(rows,{mode:'count',active:CATEGORIES.map(c=>c.id),onSelect:m=>{document.querySelector('#events').textContent=`收到交互事件：选择 ${m} 月`;}});
+  document.querySelector('#results').innerHTML=out.map(r=>`<tr><td>${r.name}${r.error?'：'+r.error:''}</td><td style="color:${r.pass?'#287d70':'#c44343'}">${r.pass?'通过':'失败'}</td></tr>`).join('');
+  document.querySelector('#summary').textContent=`${out.filter(r=>r.pass).length} / ${out.length} 项通过`;
+  window.TEST_RESULTS=out;
+}
+document.querySelector('#run').onclick=runTests;runTests();

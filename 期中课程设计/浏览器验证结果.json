@@ -1,0 +1,264 @@
+{
+  "checked_at": "2026-11-04T06:28:05.496Z",
+  "browser": "Playwright Chromium",
+  "offline_http_blocked": true,
+  "results": [
+    {
+      "name": "task1 组件断言明细",
+      "pass": true,
+      "cases": [
+        {
+          "name": "分组边界：0 / 0.1 / 10 / 25 mm",
+          "pass": true
+        },
+        {
+          "name": "边界左侧：0.099 / 9.999 / 24.999 mm",
+          "pass": true
+        },
+        {
+          "name": "null、undefined、NaN、负数不计为无雨",
+          "pass": true
+        },
+        {
+          "name": "空数组保留十二个月且有效日为 0",
+          "pass": true
+        },
+        {
+          "name": "缺测计数与累计降水独立",
+          "pass": true
+        },
+        {
+          "name": "闰年二月有 29 条真实记录",
+          "pass": true
+        },
+        {
+          "name": "四城每月：四分组之和等于有效日",
+          "pass": true
+        },
+        {
+          "name": "四城全年：有效日 + 缺测日 = 366",
+          "pass": true
+        },
+        {
+          "name": "四城月度降水和与原始逐日和一致",
+          "pass": true
+        },
+        {
+          "name": "渲染生成可访问的 SVG 与交互色块",
+          "pass": true
+        },
+        {
+          "name": "点击色块发出对应月份",
+          "pass": true
+        },
+        {
+          "name": "Enter 键选择对应月份",
+          "pass": true
+        },
+        {
+          "name": "空格键选择对应月份",
+          "pass": true
+        },
+        {
+          "name": "百分比隐藏其他分组后，分母仍为全部有效日",
+          "pass": true
+        },
+        {
+          "name": "隐藏全部分组显示提示且无交互色块",
+          "pass": true
+        },
+        {
+          "name": "有效数据为空时显示空态",
+          "pass": true
+        },
+        {
+          "name": "SVG 导出可被 XML 解析且没有 NaN",
+          "pass": true
+        },
+        {
+          "name": "destroy 释放图表 DOM",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "task1 浏览器内组件测试全部通过",
+      "pass": true
+    },
+    {
+      "name": "task2 组件断言明细",
+      "pass": true,
+      "cases": [
+        {
+          "name": "四城各有 366 条，合计 1464 条",
+          "pass": true
+        },
+        {
+          "name": "四城日期唯一且包含闰日",
+          "pass": true
+        },
+        {
+          "name": "全年筛选保留 366 天",
+          "pass": true
+        },
+        {
+          "name": "二月筛选为 29 天，七月为 31 天",
+          "pass": true
+        },
+        {
+          "name": "空时段不伪造均温与降水 0",
+          "pass": true
+        },
+        {
+          "name": "均温只除以有效温度天数",
+          "pass": true
+        },
+        {
+          "name": "真实数据最高温 ≥ 均温 ≥ 最低温",
+          "pass": true
+        },
+        {
+          "name": "降水分级色阶在 0.1 / 2 / 10 / 25 边界变化",
+          "pass": true
+        },
+        {
+          "name": "缺测颜色固定，不等同于无雨",
+          "pass": true
+        },
+        {
+          "name": "年度日历生成 366 个日期色块",
+          "pass": true
+        },
+        {
+          "name": "点击闰日发出正确日期",
+          "pass": true
+        },
+        {
+          "name": "日历支持 Enter 键",
+          "pass": true
+        },
+        {
+          "name": "日历支持空格键",
+          "pass": true
+        },
+        {
+          "name": "月份筛选降低其他月份透明度",
+          "pass": true
+        },
+        {
+          "name": "选中日期显示金色边框",
+          "pass": true
+        },
+        {
+          "name": "四城对比生成四条数据曲线",
+          "pass": true
+        },
+        {
+          "name": "气温带仅为主要城市绘制一次",
+          "pass": true
+        },
+        {
+          "name": "折线图日期点可点击选择",
+          "pass": true
+        },
+        {
+          "name": "降水图包含所选阈值线",
+          "pass": true
+        },
+        {
+          "name": "缺测折线不生成 NaN/Infinity",
+          "pass": true
+        },
+        {
+          "name": "缺测断开折线，不跨越缺测日拼接",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "name": "task2 浏览器内组件测试全部通过",
+      "pass": true
+    },
+    {
+      "name": "任务一 默认展示 12 个月",
+      "pass": true
+    },
+    {
+      "name": "任务一 城市切换更新明细",
+      "pass": true
+    },
+    {
+      "name": "任务一 百分比与分组开关",
+      "pass": true
+    },
+    {
+      "name": "任务一 全隐藏后空态提示",
+      "pass": true
+    },
+    {
+      "name": "任务一 键盘选择月份更新明细",
+      "pass": true
+    },
+    {
+      "name": "任务一 按降水日数排序为降序",
+      "pass": true
+    },
+    {
+      "name": "任务一 CSV 为 12 个月且带中文表头",
+      "pass": true
+    },
+    {
+      "name": "任务一 SVG 下载为有效图表",
+      "pass": true
+    },
+    {
+      "name": "任务二 默认全年日历 366 天",
+      "pass": true
+    },
+    {
+      "name": "任务二 日历点击联动月份、明细、表格",
+      "pass": true
+    },
+    {
+      "name": "任务二 城市切换更新图表且保留所选日期",
+      "pass": true
+    },
+    {
+      "name": "任务二 切换到降水并调整阈值",
+      "pass": true
+    },
+    {
+      "name": "任务二 关闭对比城市移除对应曲线",
+      "pass": true
+    },
+    {
+      "name": "任务二 曲线键盘交互更新日期明细",
+      "pass": true
+    },
+    {
+      "name": "任务二 导出恰好 29 天二月数据",
+      "pass": true
+    },
+    {
+      "name": "任务二 SVG 下载包含降水阈值",
+      "pass": true
+    },
+    {
+      "name": "任务二 重置恢复全部默认设置",
+      "pass": true
+    },
+    {
+      "name": "task1 390px 移动端无页面横向溢出",
+      "pass": true
+    },
+    {
+      "name": "task2 390px 移动端无页面横向溢出",
+      "pass": true
+    },
+    {
+      "name": "离线模式运行全程无 JavaScript 异常",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

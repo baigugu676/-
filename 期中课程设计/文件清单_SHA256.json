@@ -1,0 +1,194 @@
+{
+  "README.md": {
+    "bytes": 5741,
+    "sha256": "0ee49e1e178a863a3778dc7791e9393fb9299657697c0042f4861c2888c5bb28"
+  },
+  "任务一_堆叠柱状图/app.js": {
+    "bytes": 3543,
+    "sha256": "9172b2ea4ff5d67b1cc6fb12538a4aa928465abd1a1faf9f2a93c928e86f31f5"
+  },
+  "任务一_堆叠柱状图/component.js": {
+    "bytes": 4990,
+    "sha256": "8836b27067c7798d72fcbff49c862b8f3ab3288053fd6913eef746ff0e28ea4c"
+  },
+  "任务一_堆叠柱状图/data.js": {
+    "bytes": 148819,
+    "sha256": "c1c54cdc5f5c4c9392376bb860bcadd2c13c263a414c5c99e5035273296be85a"
+  },
+  "任务一_堆叠柱状图/index.html": {
+    "bytes": 2936,
+    "sha256": "0d2a21c762329aae839ecdf4e6e30fdb529e0adf281dff216770292f2d91b82a"
+  },
+  "任务一_堆叠柱状图/style.css": {
+    "bytes": 4501,
+    "sha256": "1cd94e9879ae0878e4a32c8ee11bbbd71ed1bcc854c346ea9a7c3e15b3d5f030"
+  },
+  "任务一_堆叠柱状图/tests.html": {
+    "bytes": 1258,
+    "sha256": "1ed977a2317df2fcbcb980f2fac5440361112607785397aa2e1d8d31b0940752"
+  },
+  "任务一_堆叠柱状图/tests.js": {
+    "bytes": 4410,
+    "sha256": "e7f666a1ffa52e0119183a4efea80b8d7651cd109acf66b58aafbc94703600d6"
+  },
+  "任务一_需求文档.md": {
+    "bytes": 9289,
+    "sha256": "90f400ee7d9283b0d540fd22640fdea505e533b881e78bf8a4488c2270cba555"
+  },
+  "任务二_天气可视化/app.js": {
+    "bytes": 6166,
+    "sha256": "682b976a6b6a11b48eb4f6b0ac581267ae28fde1b98ddd68e9a040629d51b8d3"
+  },
+  "任务二_天气可视化/component.js": {
+    "bytes": 8060,
+    "sha256": "4f009e2c8e83606574d7ff4eeb68428e952fa9ea4e88c4b54ae71192040c8a1b"
+  },
+  "任务二_天气可视化/data.js": {
+    "bytes": 148819,
+    "sha256": "c1c54cdc5f5c4c9392376bb860bcadd2c13c263a414c5c99e5035273296be85a"
+  },
+  "任务二_天气可视化/index.html": {
+    "bytes": 3876,
+    "sha256": "17a10270059ec2f17da93b5d5f8a4b259b969890ea222c2dfa07d965fc38ea16"
+  },
+  "任务二_天气可视化/style.css": {
+    "bytes": 5771,
+    "sha256": "75a5d68ce14095619bbee90b8014e78f3b5f548319cce8b25e41cfbd7765c117"
+  },
+  "任务二_天气可视化/tests.html": {
+    "bytes": 1189,
+    "sha256": "3a3550e421380b357fb634c88c1cc559b502d2d1f294c3ee518887ded7d085ec"
+  },
+  "任务二_天气可视化/tests.js": {
+    "bytes": 5110,
+    "sha256": "76d30822044c98347bf787954c88c9644050e41df3cf5b4e2723fea36c189156"
+  },
+  "任务二_需求文档.md": {
+    "bytes": 9440,
+    "sha256": "752264b05da397e19db9b3626e67d1ba4d9e5e298d3b5ec7c17d1d6c87207779"
+  },
+  "入口.html": {
+    "bytes": 2171,
+    "sha256": "8d90de3b49d5809fbdf7e3f93254a582e2fe39ab667349266413f92a36968af1"
+  },
+  "原始任务书.docx": {
+    "bytes": 23701,
+    "sha256": "24b162b7f195ae0d97c30e138f8105977ed88bca678203c3cf660a2bd08d00cc"
+  },
+  "工具/browser_check.cjs": {
+    "bytes": 8262,
+    "sha256": "eb7e52fe8699c0ecf254ecac23cd2fdd7dda4094a0c89c5be7614bf0bf76bf79"
+  },
+  "工具/build_report.py": {
+    "bytes": 34039,
+    "sha256": "dea47c1c173f406505b3015497bb225cd33c5d7793e0911b19b3ab3040b78730"
+  },
+  "工具/export_pdf.ps1": {
+    "bytes": 1251,
+    "sha256": "7aeff012bbb322352cdc44e36bef8e08b86be6a9a9545a16528f4e828d653b7c"
+  },
+  "工具/fetch_data.py": {
+    "bytes": 3141,
+    "sha256": "0ecd6c4796ec383c95ab3e23f06a12a589c19b5e502ed59253d7d7a40b9d997c"
+  },
+  "工具/validate_data.py": {
+    "bytes": 2973,
+    "sha256": "7b095f09ca75cda294067497b5de457d77f99dcda19ef75cb93492da502ae080"
+  },
+  "报告分页检查.json": {
+    "bytes": 2204,
+    "sha256": "0393f825e6afbb42901debc387405358839d7a818919f7752de5c6164df68d83"
+  },
+  "数据/raw/chengdu_2024.json": {
+    "bytes": 37020,
+    "sha256": "614b9f9616d29ee48c89445c9cea50c7856631a5d8f1013594ff06c0aaf13473"
+  },
+  "数据/raw/chongqing_2024.json": {
+    "bytes": 37029,
+    "sha256": "abd44ee15ad307619c22efe6f67a99a0c4dcde3222178b8a077d5b3681910abc"
+  },
+  "数据/raw/guiyang_2024.json": {
+    "bytes": 37018,
+    "sha256": "a0c0e6df33cdd61c2421172cf6880f4ed62fa551aadf594de74d706498809bf9"
+  },
+  "数据/raw/kunming_2024.json": {
+    "bytes": 36970,
+    "sha256": "2421c29011aa68ff274dcb8afb0eb41ff8c92dfd6fa7bc16604180676f35ba62"
+  },
+  "数据/weather_2024.csv": {
+    "bytes": 94873,
+    "sha256": "88f4ce7114231c9d823318e927574f60442f5c505795928c96c77c2128baaf1d"
+  },
+  "数据/weather_2024.json": {
+    "bytes": 300129,
+    "sha256": "218123b17b39200d373a139ca7d61cfd23aa73d2b320e9c9926538339c37346e"
+  },
+  "数据/数据说明.md": {
+    "bytes": 2749,
+    "sha256": "a4ac6dc2b09e80c49e04b016d916de9e6b7d43ced5af8ca2a17967d4e386e1eb"
+  },
+  "数据/数据质量验证.json": {
+    "bytes": 12994,
+    "sha256": "a82b42389d06b166577eeb3756c9b2ff57643050c0397557c5098e22e50d9b67"
+  },
+  "期中课程设计报告.docx": {
+    "bytes": 354208,
+    "sha256": "93cc7018d69dd761d2d59d0f6a3a8c0787329d4e9bc06717f0a432fba91a6c70"
+  },
+  "期中课程设计报告.md": {
+    "bytes": 27585,
+    "sha256": "df2d7d858b6f8b908ddb344d09a5f9a75057ed87682db2c50f36084ae30dc7cf"
+  },
+  "期中课程设计报告.pdf": {
+    "bytes": 871300,
+    "sha256": "fa437c5fe1fadca2e499342d02daf6b21630fcd6347e09c25057039c3eb96df0"
+  },
+  "浏览器验证结果.json": {
+    "bytes": 6359,
+    "sha256": "5de227bff7c4bad00c846de7c5796cb9b8ecd8e0a6899b99b79c0c1cfea752f5"
+  },
+  "验证截图/report_pages.png": {
+    "bytes": 632766,
+    "sha256": "58e783872793505ebb3e54819648c7173b04cb7de2f9cddcef52ef1bc5e6b615"
+  },
+  "验证截图/task1_chart.png": {
+    "bytes": 17977,
+    "sha256": "02e945ff4d2566f1bd84495b22aa751d5eee2fa33f2c8a510a4692dcc66af9b4"
+  },
+  "验证截图/task1_desktop.png": {
+    "bytes": 120180,
+    "sha256": "e90368f03f3377dac7624840e1c430842d838c6c3e3c146084cae403d95ce9d1"
+  },
+  "验证截图/task1_mobile.png": {
+    "bytes": 99594,
+    "sha256": "33e49cded0c3f36debc0747915c0f0830816e3d26ea8e8f6e8ab62fe11bf072c"
+  },
+  "验证截图/task1_tests.png": {
+    "bytes": 103638,
+    "sha256": "bac17f10e9b630da96fbd9bfa0631d88ff4e7fdb40a039ac25af41e63a71e3b4"
+  },
+  "验证截图/task2_calendar.png": {
+    "bytes": 43502,
+    "sha256": "ae27fd02a6e415a4c2152cec58ea93a18fc33f32d46f619052a00b472a072166"
+  },
+  "验证截图/task2_desktop.png": {
+    "bytes": 276351,
+    "sha256": "eb3976413272fa9a19bda02c93fab732525b56ad3a949fcf7d3afc3e7853901e"
+  },
+  "验证截图/task2_mobile.png": {
+    "bytes": 155301,
+    "sha256": "31fb0a395f831cabf0b586fb9614ddd4b68daeb26214a657c10902ab8ce88003"
+  },
+  "验证截图/task2_overview.png": {
+    "bytes": 149600,
+    "sha256": "cf9d88346a7643e27d32c3344a5aa442153f89177acaa1853044653e98db8158"
+  },
+  "验证截图/task2_rain.png": {
+    "bytes": 236024,
+    "sha256": "e2d06d2cc899001120956513617036fe3411bf1f19001411408ae97ecad70e49"
+  },
+  "验证截图/task2_tests.png": {
+    "bytes": 227531,
+    "sha256": "e728a96b775918c269ecd15e459c83f6df7268cfc8627f199d3b38cf2b4a4217"
+  }
+}

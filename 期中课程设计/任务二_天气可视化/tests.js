@@ -1,0 +1,32 @@
+'use strict';
+function runTests(){
+  const out=[],{filterDays,summarize,isValid,colorFor,TrendChart,WeatherCalendar}=WeatherViz,cities=WEATHER_DATA.cities,c=cities[0];
+  const test=(name,fn)=>{try{if(fn()===false)throw Error('断言未满足');out.push({name,pass:true});}catch(e){out.push({name,pass:false,error:e.message});}};
+  const equal=(a,b)=>{if(JSON.stringify(a)!==JSON.stringify(b))throw Error(`实际 ${JSON.stringify(a)}，预期 ${JSON.stringify(b)}`);};
+  test('四城各有 366 条，合计 1464 条',()=>{equal(cities.map(c=>c.days.length),[366,366,366,366]);});
+  test('四城日期唯一且包含闰日',()=>{for(const c of cities){equal(new Set(c.days.map(d=>d.date)).size,366);if(!c.days.some(d=>d.date==='2024-02-29'))throw Error('缺少闰日');}});
+  test('全年筛选保留 366 天',()=>equal(filterDays(c.days,'all').length,366));
+  test('二月筛选为 29 天，七月为 31 天',()=>equal([filterDays(c.days,'2').length,filterDays(c.days,'7').length],[29,31]));
+  test('空时段不伪造均温与降水 0',()=>{const s=summarize([]);equal([s.temp,s.rain,s.max],[null,null,null]);});
+  test('均温只除以有效温度天数',()=>{const s=summarize([{temp:10,rain:0,max:12},{temp:null,rain:null,max:null},{temp:20,rain:3,max:25}]);equal([s.temp,s.tempCount,s.rain,s.rainCount,s.wet,s.max],[15,2,3,2,1,25]);});
+  test('真实数据最高温 ≥ 均温 ≥ 最低温',()=>{for(const c of cities)for(const d of c.days)if(isValid(d.temp)&&isValid(d.max)&&isValid(d.min)&&!(d.max>=d.temp&&d.temp>=d.min))throw Error(c.name+d.date);});
+  test('降水分级色阶在 0.1 / 2 / 10 / 25 边界变化',()=>{const colors=[0,.1,2,10,25].map(v=>colorFor(v,'rain'));equal(new Set(colors).size,5);});
+  test('缺测颜色固定，不等同于无雨',()=>colorFor(null,'rain')!==colorFor(0,'rain'));
+  const trend=new TrendChart(document.querySelector('#trend')),calendar=new WeatherCalendar(document.querySelector('#calendar'));let selected='';
+  test('年度日历生成 366 个日期色块',()=>{calendar.render(c,{onSelect:d=>selected=d});equal(document.querySelectorAll('#calendar rect[data-date]').length,366);});
+  test('点击闰日发出正确日期',()=>{document.querySelector('#calendar [data-date="2024-02-29"]').dispatchEvent(new MouseEvent('click'));equal(selected,'2024-02-29');});
+  test('日历支持 Enter 键',()=>{document.querySelector('#calendar [data-date="2024-07-01"]').dispatchEvent(new KeyboardEvent('keydown',{key:'Enter'}));equal(selected,'2024-07-01');});
+  test('日历支持空格键',()=>{document.querySelector('#calendar [data-date="2024-12-31"]').dispatchEvent(new KeyboardEvent('keydown',{key:' '}));equal(selected,'2024-12-31');});
+  test('月份筛选降低其他月份透明度',()=>{calendar.render(c,{month:'2'});equal([document.querySelector('#calendar [data-date="2024-02-29"]').getAttribute('opacity'),document.querySelector('#calendar [data-date="2024-03-01"]').getAttribute('opacity')],['1','0.3']);});
+  test('选中日期显示金色边框',()=>{calendar.render(c,{selectedDate:'2024-06-01'});equal(document.querySelector('#calendar [data-date="2024-06-01"]').getAttribute('stroke'),'#d89444');});
+  test('四城对比生成四条数据曲线',()=>{trend.render(cities,{primary:c.id,metric:'temp'});equal(document.querySelectorAll('#trend path[data-series]').length,4);});
+  test('气温带仅为主要城市绘制一次',()=>equal(document.querySelectorAll('#trend path[fill-opacity]').length,1));
+  test('折线图日期点可点击选择',()=>{trend.render([c],{primary:c.id,month:'2',onSelect:d=>selected=d});document.querySelector('#trend [data-date="2024-02-29"]').dispatchEvent(new MouseEvent('click'));equal(selected,'2024-02-29');});
+  test('降水图包含所选阈值线',()=>{trend.render([c],{primary:c.id,metric:'rain',threshold:23});return document.querySelector('#trend').textContent.includes('23 mm');});
+  test('缺测折线不生成 NaN/Infinity',()=>{trend.render([{id:c.id,days:[{date:'2024-01-01',temp:null,max:null,min:null}]}],{primary:c.id});const html=document.querySelector('#trend').innerHTML;return !html.includes('NaN')&&!html.includes('Infinity')&&html.includes('没有有效数据');});
+  test('缺测断开折线，不跨越缺测日拼接',()=>{trend.render([{id:c.id,days:[{date:'2024-01-01',temp:1,min:0,max:2},{date:'2024-01-02',temp:null,min:null,max:null},{date:'2024-01-03',temp:2,min:1,max:3}]}],{primary:c.id});const path=document.querySelector('#trend path[data-series]').getAttribute('d');equal((path.match(/M/g)||[]).length,2);});
+  const onSelect=d=>document.querySelector('#events').textContent='收到交互事件：'+d;
+  trend.render(cities,{primary:c.id,onSelect});calendar.render(c,{onSelect});
+  document.querySelector('#results').innerHTML=out.map(r=>`<tr><td>${r.name}${r.error?'：'+r.error:''}</td><td style="color:${r.pass?'#287d70':'#c44343'}">${r.pass?'通过':'失败'}</td></tr>`).join('');document.querySelector('#summary').textContent=`${out.filter(r=>r.pass).length} / ${out.length} 项通过`;window.TEST_RESULTS=out;
+}
+document.querySelector('#run').onclick=runTests;runTests();
